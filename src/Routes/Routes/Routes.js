@@ -6,7 +6,14 @@ import Main from "../../Layout/Main";
 export const routes = createBrowserRouter([
    {
        path: '/',
-       element: <Main></Main>
+       element: <Main></Main>,
+
+       children: [({
+           
+    //     path: '/',
+    //    element: ,
+
+       })]
       
    }
 ])
