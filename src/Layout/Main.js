@@ -4,21 +4,19 @@ import { Outlet } from 'react-router-dom';
 
 const Main = () => {
     return (
-      <div>
-      <Container>
-      <Row>
-         <Col>
-            <h2>Left Side Nav</h2>
-         </Col>
-         <Col>
-             <Outlet></Outlet>
-         </Col>
-         <Col>
-            <h2>Right Side Nav</h2>
-         </Col>
-      </Row>
-   </Container> 
-      </div>
+        <Container>
+        <Row>
+           <Col lg="2">
+              <h2>This is left</h2>
+           </Col>
+           <Col lg="7">
+              <Outlet></Outlet>
+           </Col>
+           <Col lg="3">
+           <h2>This is Right</h2>
+           </Col>
+        </Row>
+     </Container>
     );
 };
 
