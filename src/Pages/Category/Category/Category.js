@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Category = () => {
+
+    const [category, setCategories] = useState([]);
     return (
         <div>
-            <h2>This is Category</h2>
+            <h4>All Categories</h4>
         </div>
     );
 };
