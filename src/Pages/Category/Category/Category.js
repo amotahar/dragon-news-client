@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Category = () => {
-
-    const [category, setCategories] = useState([]);
     return (
         <div>
-            <h4>All Categories</h4>
+            <h2>This is Category</h2>
         </div>
     );
 };
