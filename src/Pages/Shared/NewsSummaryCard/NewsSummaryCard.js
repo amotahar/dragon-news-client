@@ -2,21 +2,31 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import Image from 'react-bootstrap/Image'
+import { FaBookmark, FaShareAlt } from "react-icons/fa";
 
 
 const NewsSummaryCard = ({news}) => {
     const {_id, title, author, details, image_url, total_view} = news
     return (
         <Card className="mb-5">
-        <Card.Header>
+        <Card.Header className='d-flex justify-content-between align-items-center'>
             
-          <div>
+          <div className='d-flex'>
              <Image
+             className='me-2'
              src={author.img}
              style={{height: '60px'}}
              >
              </Image>
           </div>
+                  <p>{author.name}</p>
+                  <p>{author.published_date}</p>
+          <div>
+          <FaBookmark></FaBookmark>
+          <FaShareAlt></FaShareAlt>
+
+          </div>
+
 
             
         </Card.Header>
@@ -26,7 +36,7 @@ const NewsSummaryCard = ({news}) => {
           <Card.Text>
              {
                 details.length > 200 ?
-                <p>{details.slice(0,250) + "..."} <Link to={`/news/${_id}`}>Read More</Link> </p>:
+                <p>{details.slice(0,250) + '...'} <Link to={`/news/${_id}`}>Read More</Link> </p>:
                 <p>{details}</p>
              }
           </Card.Text>
