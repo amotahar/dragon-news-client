@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Image } from 'react-bootstrap';
+import { Image} from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -8,6 +8,8 @@ import { FaUser } from 'react-icons/fa';
 import { Link} from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import LeftSideNav from '../LeftSideNav/LeftSideNav';
+import Button from 'react-bootstrap/Button';
+
 
 const Header = () => {
   const {user, logOut} = useContext(AuthContext);
@@ -43,11 +45,12 @@ const Header = () => {
           <Nav>
             <Nav.Link href="#deets">
              {
-              user.uid ?
+              user?.uid ?
               <>
-              <span> {user?.displayName}</span>
-              <button>Logo Out</button>
-              </> :
+              <span> {user?.displayName} </span>
+              <Button variant="light" onClick={handleLogOut}>Log out</Button>
+              </> 
+              :
               <>
               <Link to="/login">Login</Link>
               <Link to="/register">Register</Link>
@@ -56,10 +59,10 @@ const Header = () => {
              </Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
               { 
-                user.photoURL?
+                user?.photoURL?
                 <Image
                 style={{height:"40px"}}
-                roundedCircle src={user.photoURL}
+                roundedCircle src={user?.photoURL}
                  ></Image>: 
                  <FaUser></FaUser>
               }
