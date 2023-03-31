@@ -1,13 +1,16 @@
 import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useNavigate } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
     const [error, setError] = useState('');
     const {signIn} = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLoaderData();
+    const from = location?.state?.from?.pathname || '/';
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
