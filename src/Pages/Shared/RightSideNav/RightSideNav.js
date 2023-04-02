@@ -11,11 +11,11 @@ import { GoogleAuthProvider } from 'firebase/auth';
 
 const RightSideNav = () => {
 
-    const providerLogin = useContext(AuthContext);
+    const {providerLogin} = useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider();
 
-    const handleGoogleeSignIn = () => {
+    const handleGoogleSignIn = () => {
        providerLogin(googleProvider)
        .then( result=>{
           const user = result.user;
@@ -28,7 +28,7 @@ const RightSideNav = () => {
     return (
         <div>
                 <ButtonGroup vertical>
-                        <Button onClick={handleGoogleeSignIn} className='mb-2' variant="outline-primary"><FaGoogle/> Login with Google </Button>
+                        <Button onClick={handleGoogleSignIn} className='mb-2' variant="outline-primary"><FaGoogle/> Login with Google </Button>
                         <Button  variant="outline-dark"><FaGithub/> Login with GitHub</Button>
                 </ButtonGroup>
                 <div>
