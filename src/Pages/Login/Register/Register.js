@@ -8,7 +8,7 @@ const Register = () => {
     const [error, setError] = useState('');
     const [accepted, setAccepted] = useState(false);
 
-    const {createUser} = useContext(AuthContext)
+    const {createUser, updateUserProfile} = useContext(AuthContext)
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -17,7 +17,7 @@ const Register = () => {
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photoURL, email, password);
+        // console.log(name, photoURL, email, password);
 
         createUser(email, password)
         .then(result=>{
@@ -25,11 +25,26 @@ const Register = () => {
             console.log(user);
             setError('');
             form.reset()
+            handleUpdateUserProfile(name, photoURL)
         })
         .catch(e => {
           console.error(e);
           setError(e.message);
         })
+    }
+
+    const handleUpdateUserProfile = (name, photoURL ) =>{
+      const profile = {
+        displayName: name,
+        photoURL: photoURL
+      }
+      updateUserProfile(profile)
+      .then(()=>{})
+      .catch(error => console.error(error));
+    }
+
+    const handleAccepted = event =>{
+      setAccepted(event.target.checked)
     }
     return (
         <Form onClick={handleSubmit}>    
@@ -53,9 +68,9 @@ const Register = () => {
           <Form.Control name="password" type="password" placeholder="Password"  required/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label={<>Accept <Link to='/terms'>Terms and conditions</Link> </>}/>
+        <Form.Check type="checkbox" onClick={handleAccepted} label={<>Accept <Link to='/terms'>Terms and conditions</Link> </>}/>
       </Form.Group>    
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" disabled={!accepted}>
           Register
         </Button>
 
