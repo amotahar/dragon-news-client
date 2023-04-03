@@ -7,9 +7,7 @@ import Register from "../../Pages/Login/Register/Register";
 import News from "../../Pages/News/News/News";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import TermsAndConditions from "../../Pages/Others/TermsAndConditions/TermsAndConditions";
-import Profile from "../../Pages/Others/TermsAndConditions/Profile/Profile";
-
-
+import Profile from "../../Pages/Others/Profile/Profile";
 
 export const routes = createBrowserRouter([
    {
