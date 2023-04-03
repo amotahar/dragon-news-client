@@ -1,10 +1,17 @@
-import React from 'react';
+//import React from 'react';
+
+import { Link } from "react-router-dom";
+
 
 const TermsAndConditions = () => {
     return (
-        <div>
-            <h2>This is Terms and Conditions </h2>
-        </div>
+    <div>
+     
+     <h3>Here is our  Terms and Conditions</h3>
+      <p>Go back to : <Link to='/register'> Register </Link> </p>
+
+    </div>
+
     );
 };
 
