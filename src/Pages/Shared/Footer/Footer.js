@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <div>
-            <p><small>Coppy Right Commig Soon</small></p>
+            <p><small className='d-flex justify-content-center' >Coppy Motahar Hossain @2023</small></p>
         </div>
     );
 };
